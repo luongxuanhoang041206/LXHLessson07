@@ -1,0 +1,52 @@
+@model IEnumerable<NetCoreMVCLAB5.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Danh sách sản phẩm</h2>
+    <a asp-action="Create" class="btn btn-primary">Thêm mới sản phẩm</a>
+</div>
+
+<table class="table table-bordered table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Image)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>@Html.DisplayNameFor(model => model.SalePrice)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th class="text-center" style="width: 200px;">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.Id</td>
+            <td class="text-center">
+                @if (!string.IsNullOrEmpty(item.Image))
+                {
+                    <img src="@item.Image" alt="@item.Name" class="img-thumbnail" style="max-height: 70px; max-width: 100px; object-fit: cover;" />
+                }
+                else
+                {
+                    <span class="text-muted">Không có ảnh</span>
+                }
+            </td>
+            <td><strong>@item.Name</strong></td>
+            <td><span class="badge bg-secondary">@(item.Category?.Name ?? "Chưa phân loại")</span></td>
+            <td>@item.Price.ToString("N0") VNĐ</td>
+            <td class="text-danger fw-bold">@item.SalePrice.ToString("N0") VNĐ</td>
+            <td>@item.Description</td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Sửa</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Chi tiết</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

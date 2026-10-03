@@ -1,0 +1,66 @@
+@model NetCoreMVCLAB5.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.Category?.Name ?? "Chưa phân loại")
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Price.ToString("N0") VNĐ
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </dt>
+        <dd class="col-sm-9 text-danger fw-bold">
+            @Model.SalePrice.ToString("N0") VNĐ
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="@Model.Image" alt="@Model.Name" class="img-thumbnail" style="max-height: 200px;" />
+            }
+            else
+            {
+                <span class="text-muted">Không có ảnh</span>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</div>

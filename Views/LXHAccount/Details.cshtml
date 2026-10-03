@@ -1,0 +1,77 @@
+@model NetCoreMVCLAB5.Models.Account
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Avatar)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Avatar)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Facebook)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
